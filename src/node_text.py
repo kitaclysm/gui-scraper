@@ -6,7 +6,7 @@ class TextType(Enum):
     BOLD = "bold"
     ITALIC = "italic"
     LINE_CODE = "line_code"
-    BLOCK_CODE = "block_code"
+    # BLOCK_CODE = "block_code"
     LINK = "link"
     IMAGE = "image"
 

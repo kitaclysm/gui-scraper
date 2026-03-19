@@ -11,7 +11,7 @@ class BlockType(Enum):
     HEADING4 = "heading4"
     HEADING5 = "heading5"
     HEADING6 = "heading6"
-    LINE_CODE = "line_code"
+    # LINE_CODE = "line_code"
     BLOCK_CODE = "block_code"
     QUOTE = "quote"
     U_LIST = "unordered_list"
