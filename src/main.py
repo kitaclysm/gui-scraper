@@ -1,0 +1,8 @@
+import sys
+
+def main():
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
+    # need to update this function to go the other way. Hopefully recurse through all pages?
+    generate_pages_recursive("content", "template.html", "docs", basepath)
+
+main()
