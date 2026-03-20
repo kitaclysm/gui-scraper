@@ -32,45 +32,45 @@ class TextNode:
 # --------------------------------------------
 # --------------------------------------------
 # --------------------------------------------
-def text_node_to_html_node(text_node):
-    t_type = text_node.text_type
-    if t_type is TextType.TEXT:
-        return LeafNode(None, text_node.text, None)
-    elif t_type is TextType.BOLD:
-        return LeafNode("b", text_node.text, None)
-    elif t_type is TextType.ITALIC:
-        return LeafNode("i", text_node.text)
-    elif t_type is TextType.CODE:
-        return LeafNode("code", text_node.text, None)
-    elif t_type is TextType.LINK:
-        return LeafNode("a", text_node.text, {"href": text_node.url})
-    elif t_type is TextType.IMAGE:
-        return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
-    else:
-        raise Exception("improper text node type")
+# def text_node_to_html_node(text_node):
+#     t_type = text_node.text_type
+#     if t_type is TextType.TEXT:
+#         return LeafNode(None, text_node.text, None)
+#     elif t_type is TextType.BOLD:
+#         return LeafNode("b", text_node.text, None)
+#     elif t_type is TextType.ITALIC:
+#         return LeafNode("i", text_node.text)
+#     elif t_type is TextType.CODE:
+#         return LeafNode("code", text_node.text, None)
+#     elif t_type is TextType.LINK:
+#         return LeafNode("a", text_node.text, {"href": text_node.url})
+#     elif t_type is TextType.IMAGE:
+#         return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
+#     else:
+#         raise Exception("improper text node type")
 
-def text_node_to_markdown_node(text_node):
-    t_type = text_node.text_type
-    match t_type:
-        case TextType.TEXT:
-        case TextType.BOLD:
-        case TextType.ITALIC:
-        case TextType.CODE:
-        case TextType.LINK:
-        case TextType.IMAGE:
-            return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
-        case _:
-            raise Exception("improper text node type")
+# def text_node_to_markdown_node(text_node):
+#     t_type = text_node.text_type
+#     match t_type:
+#         case TextType.TEXT:
+#         case TextType.BOLD:
+#         case TextType.ITALIC:
+#         case TextType.CODE:
+#         case TextType.LINK:
+#         case TextType.IMAGE:
+#             return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
+#         case _:
+#             raise Exception("improper text node type")
 
-    if t_type is TextType.TEXT:
-        return LeafNode(None, text_node.text, None)
-    elif t_type is TextType.BOLD:
-        return LeafNode("b", text_node.text, None)
-    elif t_type is TextType.ITALIC:
-        return LeafNode("i", text_node.text)
-    elif t_type is TextType.CODE:
-        return LeafNode("code", text_node.text, None)
-    elif t_type is TextType.LINK:
-        return LeafNode("a", text_node.text, {"href": text_node.url})
-    elif t_type is TextType.IMAGE:
-    else:
+#     if t_type is TextType.TEXT:
+#         return LeafNode(None, text_node.text, None)
+#     elif t_type is TextType.BOLD:
+#         return LeafNode("b", text_node.text, None)
+#     elif t_type is TextType.ITALIC:
+#         return LeafNode("i", text_node.text)
+#     elif t_type is TextType.CODE:
+#         return LeafNode("code", text_node.text, None)
+#     elif t_type is TextType.LINK:
+#         return LeafNode("a", text_node.text, {"href": text_node.url})
+#     elif t_type is TextType.IMAGE:
+#     else:

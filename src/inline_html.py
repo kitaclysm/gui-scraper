@@ -1,18 +1,21 @@
-from textnode import TextNode, TextType
-import re
+from node_text import TextNode, TextType
+from bs4 import BeautifulSoup
 
-void_tags = {"img", "br", "hr", "input", "meta"}
+void_tags = {'img', 'br', 'hr', 'input'}
+skip_tags = {'br', 'hr', 'script'}
 
-def split_html(html):
-	new_nodes = []
+def trim_html(html_text):
+	soup = BeautifulSoup(html_text, 'html.parser')
+	# only look at things in the body
+	trimmed = soup.body
+	# remove tags we don't care about
+	for tag in skip_tags:
+		for trash_tag in trimmed.find_all(tag):
+			trash_tag.decompose()
+	print(trimmed)
 
+# def split_html():
 
-def split_nodes_delimiter(old_nodes, delimiter, text_type):
-	new_nodes = []
-	for old_node in old_nodes:
-		if old_node.text_type != TextType.TEXT:
-			new_nodes.append(old_node)
-			continue
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
 	new_nodes = []

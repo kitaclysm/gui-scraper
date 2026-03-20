@@ -93,5 +93,5 @@ class ParentNode(MDNode):
             case BlockType.PARAGRAPH:
                 content = "".join([child.to_markdown() for child in self.children])
                 return f"{content}\n\n"
-
-# next step for Bear is parser
+            case _:
+                raise Exception("invalid BlockType")
