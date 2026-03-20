@@ -2,9 +2,9 @@ from node_text import TextNode, TextType
 from bs4 import BeautifulSoup
 
 void_tags = {'img', 'br', 'hr', 'input'}
-skip_tags = {'br', 'hr', 'script'}
 
 def trim_html(html_text):
+	skip_tags = {'br', 'hr', 'script', 'img'}
 	soup = BeautifulSoup(html_text, 'html.parser')
 	# only look at things in the body
 	trimmed = soup.body
@@ -12,10 +12,21 @@ def trim_html(html_text):
 	for tag in skip_tags:
 		for trash_tag in trimmed.find_all(tag):
 			trash_tag.decompose()
-	print(trimmed)
+	print(trimmed.prettify())
+	return trimmed
 
-# def split_html():
-
+def process_html(html_text):
+	pre_blocks = []
+	# add element if it doesn't have children
+	if not hasattr(html_text, 'children') or len(html_text.contents) == 0:
+		pre_blocks.append(html_text)
+	else:
+		for child in html_text.children:
+			child_results = process_html(child)
+			pre_blocks.extend(child_results)	
+	for block in pre_blocks:
+		print(block)
+	return pre_blocks
 
 def split_nodes_delimiter(old_nodes, delimiter, text_type):
 	new_nodes = []
