@@ -1,4 +1,3 @@
 # gui-scraper
 
-using python-tk
-```brew install python-tk```
+backburnering this project for now
