@@ -105,6 +105,8 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 		new_nodes.extend(temp_list)
 	return new_nodes
 
+# need to handle dividing nodes
+
 def text_to_textnodes(text):
 	# bold
 	formatted = split_nodes_delimiter([TextNode(text, TextType.TEXT, None)], "**", TextType.BOLD)
