@@ -106,6 +106,7 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
 	return new_nodes
 
 # need to handle dividing nodes
+# recursively so relationships are preserved
 
 def text_to_textnodes(text):
 	# bold
